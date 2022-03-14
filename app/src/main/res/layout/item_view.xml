@@ -3,36 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:padding="10dp"
+    android:layout_height="wrap_content"
     android:layout_margin="10dp"
-    android:layout_height="wrap_content">
-
-
+    android:padding="10dp">
+    
     <TextView
         android:id="@+id/titleTv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        tools:text="Title"
+        android:layout_marginBottom="10dp"
         android:maxLines="1"
         android:padding="5dp"
-        android:layout_marginBottom="10dp"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@id/deleteBtn"
         android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/deleteBtn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Title" />
 
     <TextView
         android:id="@+id/descriptionTv"
         android:layout_width="0dp"
-        android:maxLines="2"
         android:layout_height="wrap_content"
-        tools:text="Description"
+        android:maxLines="2"
         android:padding="5dp"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleTv" />
+        app:layout_constraintTop_toBottomOf="@id/titleTv"
+        tools:text="Description" />
 
     <ImageView
         android:id="@+id/deleteBtn"

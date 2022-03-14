@@ -23,17 +23,14 @@ import com.example.notesroom.viewmodels.NotesViewModel
 
 class ListOfNotesFragment : Fragment(), ItemClickListnerCallBacks {
     lateinit var binding: FragmentListOfNotesBinding
-
     private lateinit var viewModel: NotesViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         binding = FragmentListOfNotesBinding.inflate(inflater, container, false)
         val view = binding.root
-        binding.lifecycleOwner = this
         return view
     }
 
@@ -64,29 +61,27 @@ class ListOfNotesFragment : Fragment(), ItemClickListnerCallBacks {
                 note.id
             )
         )
-
     }
 
-    private fun backButtonHandle(){
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,object : OnBackPressedCallback(true){
-            override fun handleOnBackPressed() {
-                activity?.let { finishAffinity(it) }
-            }
-
-        } )
-
+    private fun backButtonHandle() {
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    activity?.let { finishAffinity(it) }
+                }
+            })
     }
 
-    private fun setUpRecyclerView(){
+    private fun setUpRecyclerView() {
         viewModel.allNotes.observe(viewLifecycleOwner, Observer {
             binding.recyclerView.addItemDecoration(
-                DividerItemDecoration(context,
-                    DividerItemDecoration.VERTICAL)
+                DividerItemDecoration(
+                    context,
+                    DividerItemDecoration.VERTICAL
+                )
             )
             binding.recyclerView.layoutManager = LinearLayoutManager(context)
             binding.recyclerView.adapter = RecyclerViewAdapter(it, this)
         })
-
     }
-
 }

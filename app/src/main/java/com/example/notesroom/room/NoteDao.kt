@@ -16,7 +16,5 @@ interface NoteDao {
     fun getAllNotes(): LiveData<List<Note>>
 
     @Query("SELECT * FROM notesTable where id =:noteId")
-    suspend fun getNoteId(noteId:Long):Note
-
-
+    suspend fun getNoteId(noteId: Long): Note
 }

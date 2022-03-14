@@ -15,7 +15,6 @@ class NotesViewModel(val repo: NoteRepo) : ViewModel() {
         viewModelScope.launch {
             repo.saveNote(note)
         }
-
     }
 
     fun delete(note: Note) {
@@ -27,7 +26,4 @@ class NotesViewModel(val repo: NoteRepo) : ViewModel() {
     suspend fun getNoteId(noteId: Long): Note {
         return repo.getNoteId(noteId)
     }
-
-
 }
-

@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase
 abstract class NoteDataBase : RoomDatabase() {
 
     abstract fun getNoteDao(): NoteDao
-   
+
     companion object {
         private var INSTANCE: NoteDataBase? = null
 
@@ -25,5 +25,4 @@ abstract class NoteDataBase : RoomDatabase() {
             }
         }
     }
-
 }

@@ -26,12 +26,10 @@ class AddOrEditFragment : Fragment() {
     private val args: AddOrEditFragmentArgs by navArgs()
     lateinit var viewModel: NotesViewModel
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         binding = FragmentAddOrEditBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -46,11 +44,9 @@ class AddOrEditFragment : Fragment() {
         binding.saveBtn.setOnClickListener {
             saveNote()
         }
-
         if (args.noteId != -1L) {
             setOldNoteData(args.noteId)
         }
-
     }
 
     private fun saveNote() {
@@ -70,12 +66,11 @@ class AddOrEditFragment : Fragment() {
         }
     }
 
-    fun setOldNoteData(noteId: Long) {
+    private fun setOldNoteData(noteId: Long) {
         lifecycleScope.launch {
             val note = viewModel.getNoteId(noteId)
             binding.title.setText(note.title)
             binding.contentOfNote.setText(note.contentOfNote)
         }
     }
-
 }

@@ -22,7 +22,6 @@ class SplashFragmentCustom : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         binding = FragmentSplashCustomBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -32,19 +31,17 @@ class SplashFragmentCustom : Fragment() {
 
         val settings: SharedPreferences = requireContext().getSharedPreferences("prefs", 0)
         val firstRun = settings.getBoolean("firstRun", false)
-        if (firstRun == false) //if running for first time
+        if (firstRun == false)
+        //if running for first time
         //Splash will load for first time
         {
             val editor = settings.edit()
             editor.putBoolean("firstRun", true)
             editor.apply()
             splashScreenTimer()
-
-        }
-        else{
+        } else {
             findNavController().navigate(SplashFragmentCustomDirections.actionSplashFragmentCustomToListOfNotesFragment())
         }
-
     }
 
     override fun onResume() {
@@ -57,10 +54,9 @@ class SplashFragmentCustom : Fragment() {
         (activity as AppCompatActivity?)!!.supportActionBar!!.show()
     }
 
-    fun splashScreenTimer(){
+    fun splashScreenTimer() {
         Handler(Looper.getMainLooper()).postDelayed({
             findNavController().navigate(SplashFragmentCustomDirections.actionSplashFragmentCustomToListOfNotesFragment())
         }, 3000)
-
     }
 }

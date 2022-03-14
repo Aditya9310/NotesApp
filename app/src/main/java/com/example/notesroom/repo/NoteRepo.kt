@@ -15,9 +15,8 @@ class NoteRepo(private val noteDao: NoteDao) {
     suspend fun deleteNote(note: Note) {
         noteDao.delete(note)
     }
-     suspend fun getNoteId(noteId:Long):Note{
-         return noteDao.getNoteId(noteId)
-     }
 
-
+    suspend fun getNoteId(noteId: Long): Note {
+        return noteDao.getNoteId(noteId)
+    }
 }
