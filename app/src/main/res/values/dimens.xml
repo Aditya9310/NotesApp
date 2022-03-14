@@ -1,3 +1,11 @@
 <resources>
-
+    <dimen name="largeText">48sp</dimen>
+    <dimen name="normalText">24sp</dimen>
+    <dimen name="mediumMargin">16dp</dimen>
+    <dimen name="commonElevationPaddingMargin">10dp</dimen>
+    <dimen name="DivedingLineHeight">2dp</dimen>
+    <dimen name="imageViewSaveButtonHeight">50dp</dimen>
+    <dimen name="splashScreenImageHeight">300dp</dimen>
+    <dimen name="smallText">18sp</dimen>
+    <dimen name="smallestPadding">5dp</dimen>
 </resources>

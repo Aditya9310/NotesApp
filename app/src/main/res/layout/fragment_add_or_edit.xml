@@ -5,17 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp"
+    android:padding="@dimen/commonElevationPaddingMargin"
     tools:context=".ui.AddOrEditFragment">
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@null"
         android:hint="@string/title"
-        android:paddingVertical="10dp"
-        android:textSize="50sp"
+        android:paddingVertical="@dimen/commonElevationPaddingMargin"
+        android:textSize="@dimen/largeText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,13 +24,13 @@
     <View
         android:id="@+id/SplitLine_hor1"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="@dimen/DivedingLineHeight"
         android:background="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title" />
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/contentOfNote"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -38,18 +38,18 @@
         android:gravity="start|top"
         android:hint="@string/contentHint"
         android:inputType="textPersonName"
-        android:paddingVertical="10dp"
-        android:textSize="24sp"
+        android:paddingVertical="@dimen/commonElevationPaddingMargin"
+        android:textSize="@dimen/normalText"
         app:layout_constraintBottom_toTopOf="@id/saveBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/SplitLine_hor1"
         tools:text="This is Content" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/saveBtn"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="@dimen/imageViewSaveButtonHeight"
         android:background="@drawable/bg_save_btn"
         android:src="@drawable/ic_baseline_save_24"
         app:layout_constraintBottom_toBottomOf="parent"

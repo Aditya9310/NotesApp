@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:padding="10dp">
-    
+    android:layout_margin="@dimen/commonElevationPaddingMargin"
+    android:padding="@dimen/commonElevationPaddingMargin">
+
     <TextView
         android:id="@+id/titleTv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="@dimen/commonElevationPaddingMargin"
         android:maxLines="1"
-        android:padding="5dp"
-        android:textSize="24sp"
+        android:padding="@dimen/smallestPadding"
+        android:textSize="@dimen/normalText"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@id/deleteBtn"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,8 +26,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:maxLines="2"
-        android:padding="5dp"
-        android:textSize="18sp"
+        android:padding="@dimen/smallestPadding"
+        android:textSize="@dimen/smallText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleTv"
@@ -37,7 +37,7 @@
         android:id="@+id/deleteBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="5dp"
+        android:padding="@dimen/smallestPadding"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_delete_24" />
