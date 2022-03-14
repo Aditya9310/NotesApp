@@ -8,4 +8,5 @@
     <dimen name="dimen_300dp">300dp</dimen>
     <dimen name="dimen_18sp">18sp</dimen>
     <dimen name="dimen_5dp">5dp</dimen>
+    <dimen name="dimen_1dp">1dp</dimen>
 </resources>
