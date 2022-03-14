@@ -1,16 +1,15 @@
-package com.example.notesroom.adapter
+package com.example.notesroom.adapter.testpackage
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.notesroom.ItemClickListnerCallBacks
 import com.example.notesroom.databinding.ItemViewBinding
 import com.example.notesroom.room.Note
 import com.example.notesroom.viewholder.RecylerViewViewHolder
 
-class RecyclerViewAdapter(
+class NewAdapter(
     private val listOfNote: List<Note>,
-    private val ClickListner: ItemClickListnerCallBacks
+    private val onClickListener: OnClick,
 ) : RecyclerView.Adapter<RecylerViewViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecylerViewViewHolder {
@@ -24,11 +23,9 @@ class RecyclerViewAdapter(
                 binding.titleTv.text = this.title
                 binding.descriptionTv.text = this.contentOfNote
                 binding.deleteBtn.setOnClickListener {
-                    ClickListner.deleteBtnClick(this)
+                    onClickListener.deleteListener(this)
                 }
-                binding.itemContainer.setOnClickListener {
-                    ClickListner.itemClick(this)
-                }
+
             }
         }
     }

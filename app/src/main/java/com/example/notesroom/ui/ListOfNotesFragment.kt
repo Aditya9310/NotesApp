@@ -12,16 +12,16 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.notesroom.ItemClickListnerCallBacks
 import com.example.notesroom.NoteApplication
-import com.example.notesroom.adapter.RecyclerViewAdapter
 import com.example.notesroom.databinding.FragmentListOfNotesBinding
 import com.example.notesroom.room.Note
+import com.example.notesroom.adapter.testpackage.NewAdapter
+import com.example.notesroom.adapter.testpackage.OnClick
 import com.example.notesroom.viewmodels.NoteViewModelFactory
 import com.example.notesroom.viewmodels.NotesViewModel
 
 
-class ListOfNotesFragment : Fragment(), ItemClickListnerCallBacks {
+class ListOfNotesFragment : Fragment() {
     lateinit var binding: FragmentListOfNotesBinding
     private lateinit var viewModel: NotesViewModel
 
@@ -51,18 +51,6 @@ class ListOfNotesFragment : Fragment(), ItemClickListnerCallBacks {
         backButtonHandle()
     }
 
-    override fun deleteBtnClick(note: Note) {
-        viewModel.delete(note)
-    }
-
-    override fun itemClick(note: Note) {
-        findNavController().navigate(
-            ListOfNotesFragmentDirections.actionListOfNotesFragmentToAddOrEditFragment(
-                note.id
-            )
-        )
-    }
-
     private fun backButtonHandle() {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,
             object : OnBackPressedCallback(true) {
@@ -81,7 +69,17 @@ class ListOfNotesFragment : Fragment(), ItemClickListnerCallBacks {
                 )
             )
             binding.recyclerView.layoutManager = LinearLayoutManager(context)
-            binding.recyclerView.adapter = RecyclerViewAdapter(it, this)
+            //   binding.recyclerView.adapter = RecyclerViewAdapter(it, this)
+            binding.recyclerView.adapter = NewAdapter(it, OnClick { viewModel.delete(it) })
         })
+    }
+
+    // this code is used for Update The code Using lambda
+    fun itemClickChangeFRag(note: Note) {
+        findNavController().navigate(
+            ListOfNotesFragmentDirections.actionListOfNotesFragmentToAddOrEditFragment(
+                note.id
+            )
+        )
     }
 }
