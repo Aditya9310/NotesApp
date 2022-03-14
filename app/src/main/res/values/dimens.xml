@@ -1,11 +1,11 @@
 <resources>
-    <dimen name="largeText">48sp</dimen>
-    <dimen name="normalText">24sp</dimen>
-    <dimen name="mediumMargin">16dp</dimen>
-    <dimen name="commonElevationPaddingMargin">10dp</dimen>
-    <dimen name="DivedingLineHeight">2dp</dimen>
-    <dimen name="imageViewSaveButtonHeight">50dp</dimen>
-    <dimen name="splashScreenImageHeight">300dp</dimen>
-    <dimen name="smallText">18sp</dimen>
-    <dimen name="smallestPadding">5dp</dimen>
+    <dimen name="dimen_48sp">48sp</dimen>
+    <dimen name="dimen_24sp">24sp</dimen>
+    <dimen name="dimen_16dp">16dp</dimen>
+    <dimen name="dimen_10dp">10dp</dimen>
+    <dimen name="dimen_2dp">2dp</dimen>
+    <dimen name="dimen_50dp">50dp</dimen>
+    <dimen name="dimen_300dp">300dp</dimen>
+    <dimen name="dimen_18sp">18sp</dimen>
+    <dimen name="dimen_5dp">5dp</dimen>
 </resources>

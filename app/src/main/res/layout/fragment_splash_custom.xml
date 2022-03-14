@@ -10,7 +10,7 @@
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/image"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/splashScreenImageHeight"
-        android:padding="@dimen/commonElevationPaddingMargin"
+        android:layout_height="@dimen/dimen_300dp"
+        android:padding="@dimen/dimen_10dp"
         app:srcCompat="@android:drawable/btn_star_big_on" />
 </LinearLayout>

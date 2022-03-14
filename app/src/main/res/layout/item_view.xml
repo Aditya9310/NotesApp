@@ -5,17 +5,17 @@
     android:id="@+id/itemContainer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/commonElevationPaddingMargin"
-    android:padding="@dimen/commonElevationPaddingMargin">
+    android:layout_margin="@dimen/dimen_10dp"
+    android:padding="@dimen/dimen_10dp">
 
     <TextView
         android:id="@+id/titleTv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/commonElevationPaddingMargin"
+        android:layout_marginBottom="@dimen/dimen_10dp"
         android:maxLines="1"
-        android:padding="@dimen/smallestPadding"
-        android:textSize="@dimen/normalText"
+        android:padding="@dimen/dimen_5dp"
+        android:textSize="@dimen/dimen_24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@id/deleteBtn"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,8 +27,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:maxLines="2"
-        android:padding="@dimen/smallestPadding"
-        android:textSize="@dimen/smallText"
+        android:padding="@dimen/dimen_5dp"
+        android:textSize="@dimen/dimen_18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleTv"
@@ -38,7 +38,7 @@
         android:id="@+id/deleteBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/smallestPadding"
+        android:padding="@dimen/dimen_5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_delete_24" />

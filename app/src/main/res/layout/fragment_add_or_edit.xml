@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="@dimen/commonElevationPaddingMargin"
+    android:padding="@dimen/dimen_10dp"
     tools:context=".ui.AddOrEditFragment">
 
     <androidx.appcompat.widget.AppCompatEditText
@@ -14,8 +14,8 @@
         android:layout_height="wrap_content"
         android:background="@null"
         android:hint="@string/title"
-        android:paddingVertical="@dimen/commonElevationPaddingMargin"
-        android:textSize="@dimen/largeText"
+        android:paddingVertical="@dimen/dimen_10dp"
+        android:textSize="@dimen/dimen_48sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,7 +24,7 @@
     <View
         android:id="@+id/SplitLine_hor1"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/DivedingLineHeight"
+        android:layout_height="@dimen/dimen_2dp"
         android:background="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,8 +38,8 @@
         android:gravity="start|top"
         android:hint="@string/contentHint"
         android:inputType="textPersonName"
-        android:paddingVertical="@dimen/commonElevationPaddingMargin"
-        android:textSize="@dimen/normalText"
+        android:paddingVertical="@dimen/dimen_10dp"
+        android:textSize="@dimen/dimen_24sp"
         app:layout_constraintBottom_toTopOf="@id/saveBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,7 +49,7 @@
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/saveBtn"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/imageViewSaveButtonHeight"
+        android:layout_height="@dimen/dimen_50dp"
         android:background="@drawable/bg_save_btn"
         android:src="@drawable/ic_baseline_save_24"
         app:layout_constraintBottom_toBottomOf="parent"
