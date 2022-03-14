@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/graph_navigation"
+    app:startDestination="@id/splashFragmentCustom">
+
+    <fragment
+        android:id="@+id/listOfNotesFragment"
+        android:name="com.example.notesroom.ui.ListOfNotesFragment"
+        android:label="fragment_list_of_notes"
+        tools:layout="@layout/fragment_list_of_notes" >
+        <action
+            android:id="@+id/action_listOfNotesFragment_to_addOrEditFragment"
+            app:destination="@id/addOrEditFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addOrEditFragment"
+        android:name="com.example.notesroom.ui.AddOrEditFragment"
+        android:label="fragment_add_or_edit"
+        tools:layout="@layout/fragment_add_or_edit" >
+        <argument
+            android:name="noteId"
+            android:defaultValue="-1L"
+            app:argType="long"
+            app:nullable="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragmentCustom"
+        android:name="com.example.notesroom.ui.SplashFragmentCustom"
+        android:label="fragment_splash_custom"
+        tools:layout="@layout/fragment_splash_custom" >
+        <action
+            android:id="@+id/action_splashFragmentCustom_to_listOfNotesFragment"
+            app:destination="@id/listOfNotesFragment"
+          />
+    </fragment>
+</navigation>
