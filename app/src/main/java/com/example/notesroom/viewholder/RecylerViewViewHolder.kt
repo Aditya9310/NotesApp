@@ -1,13 +1,6 @@
 package com.example.notesroom.viewholder
 
-import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.notesroom.R
+import com.example.notesroom.databinding.ItemViewBinding
 
-class RecylerViewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    val title = itemView.findViewById<TextView>(R.id.titleTv)
-    val description = itemView.findViewById<TextView>(R.id.descriptionTv)
-    val deleteBtn = itemView.findViewById<ImageView>(R.id.deleteBtn)
-}
+class RecylerViewViewHolder(val binding: ItemViewBinding) : RecyclerView.ViewHolder(binding.root)
