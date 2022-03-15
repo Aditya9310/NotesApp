@@ -19,4 +19,5 @@ class NoteRepo(private val noteDao: NoteDao) {
     suspend fun getNoteId(noteId: Long): Note {
         return noteDao.getNoteId(noteId)
     }
+
 }

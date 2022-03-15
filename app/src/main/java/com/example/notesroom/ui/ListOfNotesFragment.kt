@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.core.app.ActivityCompat.finishAffinity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -15,8 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.notesroom.NoteApplication
 import com.example.notesroom.databinding.FragmentListOfNotesBinding
 import com.example.notesroom.room.Note
-import com.example.notesroom.adapter.testpackage.NewAdapter
-import com.example.notesroom.adapter.testpackage.OnClick
+import com.example.notesroom.adapter.testpackage.RecyclerViewAdapter
+import com.example.notesroom.callbacks.OnClick
 import com.example.notesroom.viewmodels.NoteViewModelFactory
 import com.example.notesroom.viewmodels.NotesViewModel
 
@@ -61,7 +60,7 @@ class ListOfNotesFragment : Fragment() {
     }
 
     private fun setUpRecyclerView() {
-        viewModel.allNotes.observe(viewLifecycleOwner, Observer {
+        viewModel.allNotes.observe(viewLifecycleOwner) { it ->
             binding.recyclerView.addItemDecoration(
                 DividerItemDecoration(
                     context,
@@ -70,16 +69,11 @@ class ListOfNotesFragment : Fragment() {
             )
             binding.recyclerView.layoutManager = LinearLayoutManager(context)
             //   binding.recyclerView.adapter = RecyclerViewAdapter(it, this)
-            binding.recyclerView.adapter = NewAdapter(it, OnClick { viewModel.delete(it) })
-        })
-    }
+            binding.recyclerView.adapter = RecyclerViewAdapter(it, OnClick { note -> viewModel.delete(note) })
 
-    // this code is used for Update The code Using lambda
-    fun itemClickChangeFRag(note: Note) {
-        findNavController().navigate(
-            ListOfNotesFragmentDirections.actionListOfNotesFragmentToAddOrEditFragment(
-                note.id
-            )
-        )
+        }
     }
+     fun changeFrag(note: Note){
+         findNavController().navigate(ListOfNotesFragmentDirections.actionListOfNotesFragmentToAddOrEditFragment(note.id))
+     }
 }

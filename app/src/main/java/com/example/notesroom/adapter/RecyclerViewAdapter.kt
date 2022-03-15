@@ -3,11 +3,12 @@ package com.example.notesroom.adapter.testpackage
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.notesroom.callbacks.OnClick
 import com.example.notesroom.databinding.ItemViewBinding
 import com.example.notesroom.room.Note
 import com.example.notesroom.viewholder.RecylerViewViewHolder
 
-class NewAdapter(
+class RecyclerViewAdapter(
     private val listOfNote: List<Note>,
     private val onClickListener: OnClick,
 ) : RecyclerView.Adapter<RecylerViewViewHolder>() {
@@ -24,6 +25,9 @@ class NewAdapter(
                 binding.descriptionTv.text = this.contentOfNote
                 binding.deleteBtn.setOnClickListener {
                     onClickListener.deleteListener(this)
+                }
+                binding.itemContainer.setOnClickListener {
+                    onClickListener.itemClick(this)
                 }
 
             }
