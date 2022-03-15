@@ -12,10 +12,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.notesroom.NoteApplication
+import com.example.notesroom.adapter.testpackage.RecyclerViewAdapter
+import com.example.notesroom.callbacks.OnDeleteClick
+import com.example.notesroom.callbacks.OnItemClick
 import com.example.notesroom.databinding.FragmentListOfNotesBinding
 import com.example.notesroom.room.Note
-import com.example.notesroom.adapter.testpackage.RecyclerViewAdapter
-import com.example.notesroom.callbacks.OnClick
 import com.example.notesroom.viewmodels.NoteViewModelFactory
 import com.example.notesroom.viewmodels.NotesViewModel
 
@@ -69,11 +70,17 @@ class ListOfNotesFragment : Fragment() {
             )
             binding.recyclerView.layoutManager = LinearLayoutManager(context)
             //   binding.recyclerView.adapter = RecyclerViewAdapter(it, this)
-            binding.recyclerView.adapter = RecyclerViewAdapter(it, OnClick { note -> viewModel.delete(note) })
-
+            binding.recyclerView.adapter =
+                RecyclerViewAdapter(it, OnDeleteClick { note -> viewModel.delete(note) },
+                    OnItemClick { note -> changeFrag(note) })
         }
     }
-     fun changeFrag(note: Note){
-         findNavController().navigate(ListOfNotesFragmentDirections.actionListOfNotesFragmentToAddOrEditFragment(note.id))
-     }
+
+    fun changeFrag(note: Note) {
+        findNavController().navigate(
+            ListOfNotesFragmentDirections.actionListOfNotesFragmentToAddOrEditFragment(
+                note.id
+            )
+        )
+    }
 }

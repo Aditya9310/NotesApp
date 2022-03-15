@@ -9,7 +9,7 @@
         android:id="@+id/listOfNotesFragment"
         android:name="com.example.notesroom.ui.ListOfNotesFragment"
         android:label="fragment_list_of_notes"
-        tools:layout="@layout/fragment_list_of_notes" >
+        tools:layout="@layout/fragment_list_of_notes">
         <action
             android:id="@+id/action_listOfNotesFragment_to_addOrEditFragment"
             app:destination="@id/addOrEditFragment" />
@@ -18,7 +18,7 @@
         android:id="@+id/addOrEditFragment"
         android:name="com.example.notesroom.ui.AddOrEditFragment"
         android:label="fragment_add_or_edit"
-        tools:layout="@layout/fragment_add_or_edit" >
+        tools:layout="@layout/fragment_add_or_edit">
         <argument
             android:name="noteId"
             android:defaultValue="-1L"
@@ -29,10 +29,9 @@
         android:id="@+id/splashFragmentCustom"
         android:name="com.example.notesroom.ui.SplashFragmentCustom"
         android:label="fragment_splash_custom"
-        tools:layout="@layout/fragment_splash_custom" >
+        tools:layout="@layout/fragment_splash_custom">
         <action
             android:id="@+id/action_splashFragmentCustom_to_listOfNotesFragment"
-            app:destination="@id/listOfNotesFragment"
-          />
+            app:destination="@id/listOfNotesFragment" />
     </fragment>
 </navigation>

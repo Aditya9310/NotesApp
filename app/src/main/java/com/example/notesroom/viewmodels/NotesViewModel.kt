@@ -23,7 +23,6 @@ class NotesViewModel(val repo: NoteRepo) : ViewModel() {
         }
     }
 
-
     suspend fun getNoteId(noteId: Long): Note {
         return repo.getNoteId(noteId)
     }
