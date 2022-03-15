@@ -1,33 +1,35 @@
-package com.example.notesroom.adapter
+package com.example.notesroom.adapter.testpackage
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.notesroom.ItemClickListnerCallBacks
+import com.example.notesroom.callbacks.OnDeleteClick
+import com.example.notesroom.callbacks.OnItemClick
 import com.example.notesroom.databinding.ItemViewBinding
 import com.example.notesroom.room.Note
-import com.example.notesroom.viewholder.RecylerViewViewHolder
+import com.example.notesroom.viewholder.RecyclerViewViewHolder
 
 class RecyclerViewAdapter(
     private val listOfNote: List<Note>,
-    private val ClickListner: ItemClickListnerCallBacks
-) : RecyclerView.Adapter<RecylerViewViewHolder>() {
+    private val onDeleteClick: OnDeleteClick,
+    private val itemClick: OnItemClick
+) : RecyclerView.Adapter<RecyclerViewViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecylerViewViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewViewHolder {
         val binding = ItemViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return RecylerViewViewHolder(binding)
+        return RecyclerViewViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: RecylerViewViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerViewViewHolder, position: Int) {
         with(holder) {
             with(listOfNote[position]) {
                 binding.titleTv.text = this.title
                 binding.descriptionTv.text = this.contentOfNote
                 binding.deleteBtn.setOnClickListener {
-                    ClickListner.deleteBtnClick(this)
+                    onDeleteClick.deleteListener(this)
                 }
                 binding.itemContainer.setOnClickListener {
-                    ClickListner.itemClick(this)
+                    itemClick.item(this)
                 }
             }
         }

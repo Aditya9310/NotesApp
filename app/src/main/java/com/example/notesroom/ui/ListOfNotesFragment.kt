@@ -7,21 +7,21 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.core.app.ActivityCompat.finishAffinity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.notesroom.ItemClickListnerCallBacks
 import com.example.notesroom.NoteApplication
-import com.example.notesroom.adapter.RecyclerViewAdapter
+import com.example.notesroom.adapter.testpackage.RecyclerViewAdapter
+import com.example.notesroom.callbacks.OnDeleteClick
+import com.example.notesroom.callbacks.OnItemClick
 import com.example.notesroom.databinding.FragmentListOfNotesBinding
 import com.example.notesroom.room.Note
 import com.example.notesroom.viewmodels.NoteViewModelFactory
 import com.example.notesroom.viewmodels.NotesViewModel
 
 
-class ListOfNotesFragment : Fragment(), ItemClickListnerCallBacks {
+class ListOfNotesFragment : Fragment() {
     lateinit var binding: FragmentListOfNotesBinding
     private lateinit var viewModel: NotesViewModel
 
@@ -51,18 +51,6 @@ class ListOfNotesFragment : Fragment(), ItemClickListnerCallBacks {
         backButtonHandle()
     }
 
-    override fun deleteBtnClick(note: Note) {
-        viewModel.delete(note)
-    }
-
-    override fun itemClick(note: Note) {
-        findNavController().navigate(
-            ListOfNotesFragmentDirections.actionListOfNotesFragmentToAddOrEditFragment(
-                note.id
-            )
-        )
-    }
-
     private fun backButtonHandle() {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,
             object : OnBackPressedCallback(true) {
@@ -73,7 +61,7 @@ class ListOfNotesFragment : Fragment(), ItemClickListnerCallBacks {
     }
 
     private fun setUpRecyclerView() {
-        viewModel.allNotes.observe(viewLifecycleOwner, Observer {
+        viewModel.allNotes.observe(viewLifecycleOwner) { it ->
             binding.recyclerView.addItemDecoration(
                 DividerItemDecoration(
                     context,
@@ -81,7 +69,18 @@ class ListOfNotesFragment : Fragment(), ItemClickListnerCallBacks {
                 )
             )
             binding.recyclerView.layoutManager = LinearLayoutManager(context)
-            binding.recyclerView.adapter = RecyclerViewAdapter(it, this)
-        })
+            //   binding.recyclerView.adapter = RecyclerViewAdapter(it, this)
+            binding.recyclerView.adapter =
+                RecyclerViewAdapter(it, OnDeleteClick { note -> viewModel.delete(note) },
+                    OnItemClick { note -> changeFrag(note) })
+        }
+    }
+
+    fun changeFrag(note: Note) {
+        findNavController().navigate(
+            ListOfNotesFragmentDirections.actionListOfNotesFragmentToAddOrEditFragment(
+                note.id
+            )
+        )
     }
 }
