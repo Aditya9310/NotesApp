@@ -13,8 +13,6 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.notesroom.NoteApplication
 import com.example.notesroom.adapter.testpackage.RecyclerViewAdapter
-import com.example.notesroom.callbacks.OnDeleteClick
-import com.example.notesroom.callbacks.OnItemClick
 import com.example.notesroom.databinding.FragmentListOfNotesBinding
 import com.example.notesroom.room.Note
 import com.example.notesroom.viewmodels.NoteViewModelFactory
@@ -71,8 +69,8 @@ class ListOfNotesFragment : Fragment() {
             binding.recyclerView.layoutManager = LinearLayoutManager(context)
             //   binding.recyclerView.adapter = RecyclerViewAdapter(it, this)
             binding.recyclerView.adapter =
-                RecyclerViewAdapter(it, OnDeleteClick { note -> viewModel.delete(note) },
-                    OnItemClick { note -> changeFrag(note) })
+                RecyclerViewAdapter(it, { note -> viewModel.delete(note) },
+                     { note -> changeFrag(note) })
         }
     }
 

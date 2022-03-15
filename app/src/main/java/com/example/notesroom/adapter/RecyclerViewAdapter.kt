@@ -3,16 +3,14 @@ package com.example.notesroom.adapter.testpackage
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.notesroom.callbacks.OnDeleteClick
-import com.example.notesroom.callbacks.OnItemClick
 import com.example.notesroom.databinding.ItemViewBinding
 import com.example.notesroom.room.Note
 import com.example.notesroom.viewholder.RecyclerViewViewHolder
 
 class RecyclerViewAdapter(
     private val listOfNote: List<Note>,
-    private val onDeleteClick: OnDeleteClick,
-    private val itemClick: OnItemClick
+    private val onDeleteClick: (Note) -> Unit,
+    private val itemClick: (Note) -> Unit
 ) : RecyclerView.Adapter<RecyclerViewViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewViewHolder {
@@ -26,10 +24,10 @@ class RecyclerViewAdapter(
                 binding.titleTv.text = this.title
                 binding.descriptionTv.text = this.contentOfNote
                 binding.deleteBtn.setOnClickListener {
-                    onDeleteClick.deleteListener(this)
+                    onDeleteClick(this)
                 }
                 binding.itemContainer.setOnClickListener {
-                    itemClick.item(this)
+                    itemClick(this)
                 }
             }
         }
