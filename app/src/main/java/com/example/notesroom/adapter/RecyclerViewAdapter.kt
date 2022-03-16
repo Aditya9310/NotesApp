@@ -19,8 +19,8 @@ class RecyclerViewAdapter(
     }
 
     override fun onBindViewHolder(holder: RecyclerViewViewHolder, position: Int) {
-        with(holder) {
-            with(listOfNote[position]) {
+        holder.apply {
+            listOfNote[position].apply {
                 binding.titleTv.text = this.title
                 binding.descriptionTv.text = this.contentOfNote
                 binding.deleteBtn.setOnClickListener {
